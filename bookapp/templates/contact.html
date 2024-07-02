@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+</head>
+<body>
+    <h1>Contact Us</h1>
+
+    <form action="." method="POST">
+        {% csrf_token %}
+        <div class="fieldWrapper">
+            {{form.sender.errors}}
+            <label for="id_sender">Your email</label>
+            {{form.sender}}
+        </div>  
+
+        <div class="fieldWrapper">
+            {{form.message.errors}}
+            <label for="id_message">Your message</label>
+            {{form.message}}
+        </div>  
+        
+        <div class="fieldWrapper">
+            {{form.message.errors}}
+            <label for="id_message">Your message</label>
+            {{form.message}}
+        </div>  
+        
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>
