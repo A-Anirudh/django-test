@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+</head>
+<body>
+    <form method="GET">
+        <label for="q"> Search </label>
+        <input type="text" name="q" value="{{ query|escape }}">
+
+        <label for="titlesearch"> Search 2 </label>
+        <input type="text" name="titlesearch" value="{{ startswithquery|escape }}">
+
+        <input type="submit" value="Search">
+    </form>
+
+    {% if query or startswithquery %}
+        <h2>Results for {{ query|escape }} {{ startswithquery|escape }}</h2>
+        {% if results %}
+            <ul>
+                {% for book in results %}
+                    <li>{{ book.title|escape }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No book found!</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
